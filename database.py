@@ -1,3 +1,4 @@
+print("--- SCRIPT HAS STARTED ---")
 from sqlalchemy import (
     create_engine, Column, Integer, String, Float, ForeignKey, Text, Boolean
 )
@@ -82,3 +83,7 @@ def init_db(db_url="sqlite:///power_system_reliability.db"):
     engine = create_engine(db_url, echo=False)
     Base.metadata.create_all(engine)
     return sessionmaker(bind=engine)()
+
+if __name__ == "__main__":
+    init_db()
+    print("Database schema created successfully!")
