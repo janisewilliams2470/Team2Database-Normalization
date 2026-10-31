@@ -39,6 +39,8 @@ class Scenario(Base):
     scenario_name = Column(String(100), unique=True, nullable=False) # e.g., 2028 Summer Peak
     study_year = Column(Integer)
     condition_type = Column(String(50))
+    
+    findings = relationship("Finding", back_populates="scenario")
 
 class Mitigation(Base):
     __tablename__ = 'mitigations'
